@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/style.css', (req, res) => {
+
+  res.sendFile("style.css",{root:`${__dirname}/frontend`})
+})
 // Starting the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
