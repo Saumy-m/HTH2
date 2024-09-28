@@ -12,19 +12,17 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server (optional starting in v4.7)
     await client.connect();
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-    // Specify the database and collection
-    const database = client.db("StressBud"); // replace with your database name
-    const collection = database.collection("Users"); // replace with your collection name
+    const database = client.db("StressBud"); 
+    const collection = database.collection("Users"); 
 
     // Create a document to insert
-    const users = new array[3];
+    let users={}
     users[0] = {
       id: 0,
       name: "Rayyan Sait",
@@ -57,8 +55,10 @@ async function run() {
     };
 
     // Insert the document into the collection
-    const result = await collection.insertOne(doc);
-    console.log(`A document was inserted with the _id: ${result.insertedId}`);
+    await database.collection('users').deleteMany({})
+    await collection.insertOne(users[0]);
+    await collection.insertOne(users[1]);
+    await collection.insertOne(users[2]);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
