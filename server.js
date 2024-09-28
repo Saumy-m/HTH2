@@ -9,6 +9,12 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'log_in.html'));
+
+});
+
+
 app.get('/style.css', (req, res) => {
 
   res.sendFile("style.css",{root:`${__dirname}/frontend`})
