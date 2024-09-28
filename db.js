@@ -24,10 +24,36 @@ async function run() {
     const collection = database.collection("Users"); // replace with your collection name
 
     // Create a document to insert
-    const doc = {
+    const users = new array[3];
+    users[0] = {
+      id: 0,
       name: "Rayyan Sait",
-      password: "Ray"
-      // Add other fields as needed
+      email: "rayyansait@cmail.carleton.ca",
+      password: "Ray",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "GYM RAT!"
+    };
+    users[1] = {
+      id: 1,
+      name: "Damon Gee",
+      email: "damongee@cmail.carleton.ca",
+      password: "DemonTheGeek",
+      school: 0,
+      age: 21,
+      gender: "M",
+      bio: "Pokemon Go enjoyer"
+    };
+    users[2] = {
+      id: 2,
+      name: "Saumya Mehta",
+      email: "saumyamehta@cmail.carleton.ca",
+      password: "CSS_03",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "I wanna go outside"
     };
 
     // Insert the document into the collection
