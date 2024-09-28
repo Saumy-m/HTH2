@@ -1,5 +1,6 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -8,16 +9,69 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+    const database = client.db("StressBud"); 
+    const collection = database.collection("Users"); 
+
+    // Create a document to insert
+    let users={}
+    users[0] = {
+      id: 0,
+      name: "Rayyan Sait",
+      email: "rayyansait@cmail.carleton.ca",
+      password: "Ray",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "GYM RAT!",
+      hobby1: "Gym",
+      hobby2: "Gaming",
+      hobby3: "Programming"
+    };
+    users[1] = {
+      id: 1,
+      name: "Damon Gee",
+      email: "damongee@cmail.carleton.ca",
+      password: "DemonTheGeek",
+      school: 0,
+      age: 21,
+      gender: "M",
+      bio: "Pokemon Go enjoyer",
+      hobby1: "Pokemon Go",
+      hobby2: "Photography",
+      hobby3: "Programming"
+    };
+    users[2] = {
+      id: 2,
+      name: "Saumya Mehta",
+      email: "saumyamehta@cmail.carleton.ca",
+      password: "CSS_03",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "I wanna go outside ;-;",
+      hobby1: "Programming",
+      hobby2: "Singing",
+      hobby3: "Sleeping"
+    };
+
+    // Insert the document into the collection
+    await database.collection('users').deleteMany({})
+    await collection.insertOne(users[0]);
+    await collection.insertOne(users[1]);
+    await collection.insertOne(users[2]);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
+
 run().catch(console.dir);
