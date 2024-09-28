@@ -48,8 +48,8 @@ async function run() {
       gender: "M",
       bio: "Pokemon Go enjoyer",
       hobby1: "Pokemon Go",
-      hobby2: "Programming",
-      hobby3: "Photography"
+      hobby2: "Photography",
+      hobby3: "Programming"
     };
     users[2] = {
       id: 2,
