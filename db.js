@@ -31,7 +31,10 @@ async function run() {
       school: 0,
       age: 20,
       gender: "M",
-      bio: "GYM RAT!"
+      bio: "GYM RAT!",
+      hobby1: "Gym",
+      hobby2: "Gaming",
+      hobby3: "Programming"
     };
     users[1] = {
       id: 1,
@@ -41,7 +44,10 @@ async function run() {
       school: 0,
       age: 21,
       gender: "M",
-      bio: "Pokemon Go enjoyer"
+      bio: "Pokemon Go enjoyer",
+      hobby1: "Pokemon Go",
+      hobby2: "Photography",
+      hobby3: "Programming"
     };
     users[2] = {
       id: 2,
@@ -51,7 +57,10 @@ async function run() {
       school: 0,
       age: 20,
       gender: "M",
-      bio: "I wanna go outside"
+      bio: "I wanna go outside ;-;",
+      hobby1: "Programming",
+      hobby2: "Singing",
+      hobby3: "Sleeping"
     };
 
     // Insert the document into the collection
