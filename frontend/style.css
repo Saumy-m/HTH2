@@ -1,10 +1,14 @@
 .heading {
     text-align: center;
-    
+    margin-top: 40px;
     
 }
 
 .buttons{
     text-align: center;
+    margin-top: 80px;
     
+}
+.body {
+    background-image: linear-gradient(to right, #228B22, #12e0e7);
 }
