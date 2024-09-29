@@ -26,6 +26,7 @@ async function run() {
     users[0] = {
       id: 0,
       name: "Rayyan Sait",
+      username:"rayyansait",
       email: "rayyansait@cmail.carleton.ca",
       password: "Ray",
       school: 0,
@@ -39,6 +40,7 @@ async function run() {
     users[1] = {
       id: 1,
       name: "Damon Gee",
+      username:"damongee",
       email: "damongee@cmail.carleton.ca",
       password: "DemonTheGeek",
       school: 0,
@@ -52,6 +54,7 @@ async function run() {
     users[2] = {
       id: 2,
       name: "Saumya Mehta",
+      username:"saumyamehta",
       email: "saumyamehta@cmail.carleton.ca",
       password: "CSS_03",
       school: 0,
@@ -64,10 +67,11 @@ async function run() {
     };
 
     // Insert the document into the collection
-    await database.collection('users').deleteMany({})
+    await collection.deleteMany({})
     await collection.insertOne(users[0]);
     await collection.insertOne(users[1]);
     await collection.insertOne(users[2]);
+    console.log(await collection.find({}).toArray())
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
