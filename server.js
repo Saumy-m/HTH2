@@ -24,13 +24,15 @@ app.get('/login.js', (req, res) => {
 
 });
 
-
 app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'register.html'));
 
 });
 
+app.get('/register.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'backend/jsfiles', 'register.js'));
 
+});
 
 
 app.get('/style.css', (req, res) => {
