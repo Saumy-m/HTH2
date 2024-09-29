@@ -9,6 +9,11 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'register.html'));
+
+});
+
 app.get('/style.css', (req, res) => {
 
   res.sendFile("style.css",{root:`${__dirname}/frontend`})
