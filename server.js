@@ -38,7 +38,7 @@ app.get('/', async (req, res) => {
     //This means that the user is logged in, we must get the other memebers and allow the user to like or dislike them
 
     await client.connect();
-    const database = client.db("StressBud");
+    const database = client.db("SkillBuddy");
     const usersCollection = database.collection("Users");
     const loggedinUser = await usersCollection.find({username:loggedin[0]}).toArray();
     //Now we find the users possible matches
@@ -132,7 +132,7 @@ app.post("/login", (req,res,next) => {
     req.on('data',async (data)=>{
       data=JSON.parse(data)
       await client.connect();
-      const database = client.db("StressBud");
+      const database = client.db("SkillBuddy");
       const usersCollection = database.collection("Users");
       const users = await usersCollection.find({username:data["username"]}).toArray();
 
@@ -166,7 +166,7 @@ app.post("/register", (req,res,next) => {
     req.on('data',async (data)=>{
       data=JSON.parse(data)
       await client.connect();
-      const database = client.db("StressBud");
+      const database = client.db("SkillBuddy");
       const usersCollection = database.collection("Users");
       const currUser = await usersCollection.findOne({username:data["username"]});
       const users = await usersCollection.find({}).toArray();
