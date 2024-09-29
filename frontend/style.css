@@ -12,3 +12,21 @@
 .body {
     background-image: linear-gradient(to right, #228B22, #12e0e7);
 }
+
+.forms{
+    text-align: center; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_cont{
+    display: flex; 
+    justify-content:space-between;
+    width: 70%; max-width: 500px;
+    justify-items:left;
+}
+
+.form_in{
+    justify-items: left;
+}
