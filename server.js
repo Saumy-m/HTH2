@@ -5,7 +5,7 @@ const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const { MongoClient: Client, ServerApiVersion } = require('mongodb');
 const { Console } = require('console');
-const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://saumyamehta0610:ychD7CPTI2LsOgIC@cluster0.v9v25.mongodb.net/";
 const port = 3000;
 var session = require('express-session')
 let db;
@@ -71,7 +71,7 @@ app.post("/login", (req,res,next) => {
       const users = await usersCollection.find({username:data["username"]}).toArray();
 
       //console.log(users[0]["password"])
-      //console.log(data["password"])
+      console.log(data["password"])
       if(users.length==0)
       {
         res.status(500).send('Bad Request');
@@ -85,8 +85,58 @@ app.post("/login", (req,res,next) => {
         res.status(500).send('Bad Request');
       }
     
-        
-      
+    })
+  
+
+})
+
+app.post("/register", (req,res,next) => {
+  const data=[];
+  
+    console.log("Hiiii")
+    req.on('data',async (data)=>{
+      data=JSON.parse(data)
+      await client.connect();
+      const database = client.db("StressBud");
+      const usersCollection = database.collection("Users");
+      const currUser = await usersCollection.findOne({username:data["username"]});
+      const users = await usersCollection.find({}).toArray();
+      const currEmail = await usersCollection.findOne({email:data["email"]});
+
+
+
+      //console.log(users[0]["password"])
+      // console.log(data)
+      // console.log("Hi")
+      console.log(users)
+      if(currUser)
+      {
+        res.status(500).send('Username already exists!!');
+        console.log(users[users.length-1])
+
+      }
+      else if(currEmail){
+        res.status(500).send('Email already exists!!');
+        console.log(users[users.length-1])
+
+      }
+      else if(data["name"]==="" || data["username"]==="" || data["email"]=== "" || data["pass"]==="" || data["pas"]==="" || data["age"]==="" || data["gender"]==="" || data["bio"]==="" || data["hobby_1"]==="" || data["hobby_2"]==="" || data["hobby_3"]==="" ){
+        res.status(500).send('One or More field is empty!!');
+        // console.log(users[users.length-1])
+      }
+      else if(data["pass"] !== data["pas"])
+      {
+        res.status(200).send('Passwords Do Not Match');
+
+      }
+      else
+      {
+        // console.log("Success")
+        const result=await usersCollection.insertOne({id: users.length,name: data["name"], username: data["username"], email: data["email"], password: data["pass"], age: data["age"], gender: data["gender"], bio: data["bio"], hobby1: data["hobby_1"], hobby2: data["hobby_2"], hobby3: data["hobby_3"]})
+        console.log(users[users.length-1])
+        res.status(200).send('Registration Successfull!!');      
+      }
+    
     })
   
 

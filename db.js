@@ -1,5 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://saumyamehta0610:ychD7CPTI2LsOgIC@cluster0.v9v25.mongodb.net/";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -29,7 +29,6 @@ async function run() {
       username:"rayyansait",
       email: "rayyansait@cmail.carleton.ca",
       password: "Ray",
-      school: 0,
       age: 20,
       gender: "M",
       bio: "GYM RAT!",
@@ -43,7 +42,6 @@ async function run() {
       username:"damongee",
       email: "damongee@cmail.carleton.ca",
       password: "DemonTheGeek",
-      school: 0,
       age: 21,
       gender: "M",
       bio: "Pokemon Go enjoyer",
@@ -57,7 +55,6 @@ async function run() {
       username:"saumyamehta",
       email: "saumyamehta@cmail.carleton.ca",
       password: "CSS_03",
-      school: 0,
       age: 20,
       gender: "M",
       bio: "I wanna go outside ;-;",
