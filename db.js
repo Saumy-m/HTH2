@@ -1,5 +1,5 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://saumyamehta0610:ychD7CPTI2LsOgIC@cluster0.v9v25.mongodb.net/";
+const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -62,12 +62,44 @@ async function run() {
       hobby2: "Singing",
       hobby3: "Sleeping"
     };
+    users[3] = {
+      id: 3,
+      name: "John Doe",
+      username:"johndoe",
+      email: "johndoe@cmail.carleton.ca",
+      password: "jo",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "Sleepy Joe ;-;",
+      hobby1: "Sleeping",
+      hobby2: "Gaming",
+      hobby3: "Gym"
+    };
+    users[4] = {
+      id: 4,
+      name: "Donald Trump",
+      username:"donaldtrump",
+      email: "donaldtrump@cmail.carleton.ca",
+      password: "don",
+      school: 0,
+      age: 20,
+      gender: "M",
+      bio: "They are eating the dogs",
+      hobby1: "Gym",
+      hobby2: "Pokemon Go",
+      hobby3: "Sleeping"
+    };
+
+
 
     // Insert the document into the collection
     await collection.deleteMany({})
     await collection.insertOne(users[0]);
     await collection.insertOne(users[1]);
     await collection.insertOne(users[2]);
+    await collection.insertOne(users[3]);
+    await collection.insertOne(users[4]);
     console.log(await collection.find({}).toArray())
   } finally {
     // Ensures that the client will close when you finish/error
