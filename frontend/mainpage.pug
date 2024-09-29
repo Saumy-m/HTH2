@@ -1,6 +1,10 @@
 html 
     head 
-        title Hompage
-        link(rel='stylesheet', href='style.css')
+        title MainPage
+        link(rel="stylesheet", href="main.css")
     body
-        Label Home
+        h1 #{username}
+        for match in matches
+            label #{match.name}
+            br
+

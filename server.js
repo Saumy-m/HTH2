@@ -5,12 +5,12 @@ const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const { MongoClient: Client, ServerApiVersion } = require('mongodb');
 const { Console } = require('console');
-const uri = "mongodb+srv://saumyamehta0610:ychD7CPTI2LsOgIC@cluster0.v9v25.mongodb.net/";
+const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const port = 3000;
 var session = require('express-session')
 let db;
 
-const loggedin=["rayyansait"]
+const loggedin=[]
 
 const client = new Client(uri, {
   serverApi: {
@@ -71,24 +71,14 @@ app.get('/', async (req, res) => {
           }
         matches[i]["total"]=total
         total=0;
-        res.status(200).render("mainpage.pug")
 
                 
       }
     }
     matches.splice(0,1)
     matches.sort((a, b) => b.total - a.total);
-    //console.log(matches)
-    res.render()
-
-
-
-      
-    
-
-    
-
-
+    console.log(matches)
+    res.status(200).render("mainpage.pug",{username:req.session.username,matches:matches})
   }
   else{
 
@@ -128,7 +118,7 @@ app.get('/style.css', (req, res) => {
 })
 app.get('/main.css', (req, res) => {
 
-  res.sendFile("style.css",{root:`${__dirname}/frontend`})
+  res.sendFile("main.css",{root:`${__dirname}/frontend`})
 })
 
 
