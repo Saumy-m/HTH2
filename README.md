@@ -1,23 +1,8 @@
-SkillBuddy
+SkillBuddy: Build New Skills, Make New Friends
 
-Build New Skills, Make New Friends
+Authors: Rayyan Sait, Saumya Mehta, Damon Gee
 
-
-Authors:
-
-Rayyan Sait
-
-Saumya Mehta
-
-Damon Gee
-
-
-Requirements:
-
-MongoDB
-
-node.js
-
+Requirements: MongoDB, node.js
 
 SKillBuddy is a self-improvement app designed to connect people with the best motivator: other people.
 It's a friendship app catered to post-secondary students looking to get better at their hobbies, habits, 
