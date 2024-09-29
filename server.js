@@ -37,7 +37,6 @@ app.get('/', async (req, res) => {
   {
     //This means that the user is logged in, we must get the other memebers and allow the user to like or dislike them
 
-    res.status(200).render("mainpage.pug")
     await client.connect();
     const database = client.db("StressBud");
     const usersCollection = database.collection("Users");
@@ -72,13 +71,17 @@ app.get('/', async (req, res) => {
           }
         matches[i]["total"]=total
         total=0;
+        res.status(200).render("mainpage.pug")
 
                 
       }
     }
     matches.splice(0,1)
     matches.sort((a, b) => b.total - a.total);
-    console.log(matches)
+    //console.log(matches)
+    res.render()
+
+
 
       
     
