@@ -63,18 +63,20 @@ app.get('/', async (req, res) => {
           total+=1
         }
         if(matches[i]["hobby1"]==loggedinUser[0]["hobby3"])
-        {  
-          total+=2 
-        }
-        if(matches[i]["hobby3"]==loggedinUser[0]["hobby1"])
-        {
-          total+=2
-        }
+          {
+            total+=2
+          }
+          if(matches[i]["hobby3"]==loggedinUser[0]["hobby1"])
+          {
+            total+=1
+          }
         matches[i]["total"]=total
+        total=0;
 
                 
       }
     }
+    matches.splice(0,1)
     matches.sort((a, b) => b.total - a.total);
     console.log(matches)
 
