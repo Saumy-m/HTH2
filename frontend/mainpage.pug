@@ -1,10 +1,12 @@
-html 
-    head 
+html
+    head
         title MainPage
         link(rel="stylesheet", href="main.css")
     body
         h1 #{username}
-        for match in matches
-            label #{match.name}
-            br
+        each match in matches
+            label #{match.name} Bio: #{match.bio} Hobbies:   #{match.hobby1},#{match.hobby2},#{match.hobby3}
+            button(type="button") Yes
+            button(type="button") No
 
+            br
