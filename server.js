@@ -9,13 +9,24 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'log_in.html'));
+app.get('/home.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'backend/jsfiles', 'home.js'));
 
 });
 
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'log_in.html'));
+
+});
+
+app.get('/login.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'backend/jsfiles', 'login.js'));
+
+});
+
+
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'register.html'));
 
 });
 
