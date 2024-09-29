@@ -5,7 +5,7 @@ const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
 const { MongoClient: Client, ServerApiVersion } = require('mongodb');
 const { Console } = require('console');
-const uri = "mongodb+srv://rayyan:vjwn4SIN2q29mwvl@cluster0.zrpw9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "";
 const port = 3000;
 var session = require('express-session')
 let db;
